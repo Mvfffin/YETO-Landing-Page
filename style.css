@@ -647,3 +647,23 @@ body {
     margin-top: 10px;
     margin-bottom:30px;
 }
+
+.calendly-booking-section {
+    padding: 70px 0;
+    background-color: #f4f4f4;
+}
+
+.calendly-booking-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.calendly-booking-section .privacy-note {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: #666;
+}
