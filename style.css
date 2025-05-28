@@ -636,7 +636,8 @@ body {
 .why-yeto-section,
 .portal-section,
 .solutions-section,
-.social-proof-section { 
+.social-proof-section,
+.calendly-booking-section { 
     border-bottom: 10px solid #FF8C00;
 }
 
@@ -661,9 +662,26 @@ body {
     margin-bottom: 15px;
 }
 
+.calendly-booking-section .section-intro-text {
+    text-align:center;
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
 .calendly-booking-section .privacy-note {
     text-align: center;
     margin-top: 30px;
     font-size: 0.85rem;
     color: #666;
+}
+
+.calendly-booking-section h2::after {
+    content: '';
+    display: block;
+    width: 60px; /* Adjust width */
+    height: 3px;  /* Adjust thickness */
+    background-color: #FF8C00; /* YETO Orange */
+    margin: 15px auto 0; /* Center it below the H2 */
 }
