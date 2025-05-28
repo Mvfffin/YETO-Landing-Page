@@ -685,3 +685,75 @@ body {
     background-color: #FF8C00; /* YETO Orange */
     margin: 15px auto 0; /* Center it below the H2 */
 }
+
+.site-footer {
+    background-color: #1A1A1A; /* YETO Black or a dark grey like #222 or #333 */
+    color: #cccccc;           /* Light grey for general text */
+    padding: 60px 0 40px 0;  /* Generous top padding, bit less bottom. Adjust as needed. */
+    font-size: 0.9rem;       /* Slightly smaller base font for footer content */
+    line-height: 1.7;
+}
+
+.site-footer .container {
+    /* The global .container styles will apply for width, max-width, margin: auto, and base padding.
+       We can add specific overrides if needed, but usually not necessary here. */
+}
+
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;      /* Allows columns to stack on smaller screens */
+    justify-content: space-between; /* Distributes space between columns */
+    gap: 30px;            /* Space between columns when they wrap or if there's extra space */
+}
+
+.footer-column {
+    flex: 1;              /* Allows columns to share space equally */
+    min-width: 250px;     /* Minimum width before wrapping, helps with responsiveness */
+    margin-bottom: 30px;  /* Space below columns when they stack on mobile */
+}
+
+.footer-column h4 {
+    font-size: 1.1rem;    /* Size for column titles */
+    color: #FFFFFF;       /* White for titles to make them stand out more */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-column p,
+.footer-column address {
+    margin-bottom: 10px;
+    color: #cccccc; /* Default text color for paragraphs and address */
+}
+
+.footer-column address {
+    font-style: normal; /* Removes default italic styling from <address> tag */
+}
+
+.footer-column a {
+    color: #FFFFFF;       /* White for links to make them clear */
+    text-decoration: none;
+}
+
+.footer-column a:hover,
+.footer-column a:focus {
+    color: #FF8C00;       /* YETO Orange on hover (use your exact hex code) */
+    text-decoration: underline;
+}
+
+/* Specific styling for the list of links in the third column */
+.footer-links {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+/* Copyright text specifically */
+.copyright {
+    font-size: 0.85rem;
+    color: #a0a0a0;   /* A slightly more subdued light grey */
+    margin-top: 20px; /* Extra space above the copyright */
+}
