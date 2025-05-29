@@ -757,3 +757,135 @@ body {
     color: #a0a0a0;   /* A slightly more subdued light grey */
     margin-top: 20px; /* Extra space above the copyright */
 }
+
+/* Hamburger Menu Toggle Button Styling */
+.mobile-nav-toggle {
+    display: none; /* Initially hidden on desktop */
+    background: transparent;
+    border: none;
+    padding: 10px; /* Make it easier to tap */
+    cursor: pointer;
+    z-index: 1000; /* Ensure it's on top if other elements overlap */
+    /* We'll position this with flexbox on its parent later if needed,
+       or you can use absolute positioning within the nav bar for mobile. */
+}
+
+.hamburger-icon {
+    display: block;
+    position: relative;
+    width: 24px;  /* Width of the hamburger lines */
+    height: 2px;  /* Thickness of the middle line */
+    background-color: #FFFFFF; /* Color of the middle line (YETO Black or your preferred icon color) */
+    border-radius: 1px;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Same thickness as the middle line */
+    background-color: #FFFFFF; /* Color of the top/bottom lines */
+    border-radius: 1px;
+    transition: transform 0.3s ease-out, top 0.3s ease-out, bottom 0.3s ease-out; /* For 'X' animation later */
+}
+
+.hamburger-icon::before {
+    top: -7px; /* Space between middle and top line */
+}
+
+.hamburger-icon::after {
+    bottom: -7px; /* Space between middle and bottom line */
+}
+
+/* Media Query for Tablets and Mobile Phones */
+/* We'll use 768px as a common breakpoint. Adjust as needed. */
+@media (max-width: 768px) {
+    .main-navigation .container {
+        display: flex;
+        justify-content: space-between; /* Puts toggle on one side, (future) logo/title on other */
+        align-items: center;
+        position: relative;
+    }
+
+    .main-navigation ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #1A1A1A;
+        padding: 10px 0;
+        margin: 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+
+    /* This class will be toggled by JavaScript */
+    .main-navigation ul.nav-open {
+        display: flex; /* Show the menu as a flex column when open */
+    }
+
+    .main-navigation ul.nav-open li {
+        width: 100%;
+        text-align: center; /* Center the link text */
+        margin: 0; /* Reset any desktop margins */
+    }
+
+    .main-navigation ul.nav-open a {
+        display: block; /* Make the whole area clickable */
+        padding: 15px 20px; /* Generous padding for easy tapping */
+        width: 100%;
+        color: #FFFFFF; /* White text */
+        text-decoration: none;
+        border-bottom: 1px solid #333333; /* Subtle separator between links */
+    }
+
+    .main-navigation ul.nav-open li:last-child a {
+        border-bottom: none; /* No border on the last item */
+    }
+
+    .main-navigation ul.nav-open a:hover,
+    .main-navigation ul.nav-open a:focus {
+        background-color: #FF8C00; /* YETO Orange on hover */
+        color: #1A1A1A;           /* Dark text on hover */
+    }
+
+    .mobile-nav-toggle {
+        display: block; /* Show the hamburger button on mobile */
+        /* Ensure it's positioned correctly. If .main-navigation .container is flex
+           and has justify-content: space-between, this should align to one side.
+           You might need to adjust its order in HTML or use order property if you want
+           it on the right and there's a logo/title on the left.
+           For now, we assume it's the primary element on one side. */
+    }
+}
+
+    .mobile-nav-toggle {
+        display: block; /* Show the hamburger button on mobile */
+        /* You might want to add specific positioning here if needed,
+           e.g., if it's not using flexbox from the parent for alignment.
+           If .main-navigation .container is flex and uses space-between,
+           the button will go to one side if it's one of two children.
+           Currently, your <ul> is the other child. */
+    }
+
+
+/* Styles for the active/open state of the hamburger icon (X shape) */
+.mobile-nav-toggle.is-active .hamburger-icon {
+    background-color: transparent; /* Makes the middle line disappear for the 'X' */
+}
+
+.mobile-nav-toggle.is-active .hamburger-icon::before {
+    background-color: #FF8C00; /* YETO Orange (use your exact hex code) */
+    top: 0; /* Align to the center for rotation */
+    transform: rotate(45deg);
+}
+
+.mobile-nav-toggle.is-active .hamburger-icon::after {
+    background-color: #FF8C00; /* YETO Orange (use your exact hex code) */
+    bottom: 0; /* Align to the center for rotation */
+    transform: rotate(-45deg);
+}

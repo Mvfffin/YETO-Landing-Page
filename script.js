@@ -126,4 +126,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+     // Mobile Navigation Toggle
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const mainNavUl = document.querySelector('.main-navigation ul');
+
+    if (mobileNavToggle && mainNavUl) { // Check if both elements actually exist on the page
+        mobileNavToggle.addEventListener('click', function() {
+            // Toggle the .is-active class on the button itself (for the X animation)
+            this.classList.toggle('is-active');
+
+            // Toggle the .nav-open class on the <ul> to show/hide the menu
+            mainNavUl.classList.toggle('nav-open');
+
+            // Update aria-expanded attribute for accessibility
+            // Get the current state (true or false)
+            const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+            // Set it to the opposite state
+            this.setAttribute('aria-expanded', !isExpanded);
+        });
+    }
+
 });
