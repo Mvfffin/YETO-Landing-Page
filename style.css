@@ -1107,6 +1107,48 @@ body {
     }
 }
 
+    /* Responsive Styles for Calendly Booking Section */
+    .calendly-booking-section {
+        padding: 40px 0; /* Reduce overall section padding */
+    }
+
+    .calendly-booking-section h2 {
+        font-size: 1.8rem;    /* Adjust section headline size */
+        margin-bottom: 15px;  /* Adjust space below headline */
+    }
+
+    .calendly-booking-section .section-intro-text {
+        font-size: 0.95rem;   /* Adjust intro paragraph size */
+        line-height: 1.6;
+        max-width: 90%;       /* Make its max-width relative for better fit */
+        margin-bottom: 30px;  /* Adjust space below intro, before Calendly embed */
+    }
+
+    .calendly-embed-wrapper {
+        /* If you set a fixed max-width for this on desktop (e.g., 480px),
+           it should generally be fine on mobile as long as the screen isn't
+           much narrower than that. Ensure it can shrink if needed by not having
+           a fixed 'width' property that's too large for mobile.
+           Often, max-width: 100%; works well if it's directly in .container. */
+        /* Example: if you want to ensure it doesn't exceed screen width but respects its content's min-width */
+        /* max-width: 100%; */
+    }
+
+    /* The Calendly widget itself has an inline style: style="min-width:320px;height:700px;"
+       The min-width:320px is good for mobile. The height:700px might make the section
+       feel quite long on small screens. You can check Calendly's embed options
+       to see if a more 'auto' height or a smaller fixed height is available if this is an issue.
+       We have limited CSS control over the iframe's internal height. */
+
+    .calendly-booking-section .privacy-note {
+        font-size: 0.8rem;   /* Adjust privacy note size */
+        margin-top: 25px;    /* Adjust space above privacy note */
+        max-width: 90%;      /* Allow text to wrap nicely */
+        margin-left: auto;   /* Center if max-width is applied */
+        margin-right: auto;  /* Center if max-width is applied */
+    }
+
+
 
     .contact-item {
         font-size: 0.85rem;
