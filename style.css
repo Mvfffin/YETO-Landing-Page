@@ -1,56 +1,221 @@
+/* =============================================== */
+/* 1. Global Reset & Basic Styles
+/* =============================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth; /* For smooth scrolling with anchor links */
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
+    color: #333333; /* Default dark text color */
+    background-color: #f4f4f4; /* Light grey background for the page */
+    font-size: 16px; /* Base font size */
 }
 
 .container {
     width: 90%;
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: left;
+    max-width: 1140px; /* Max width for content */
+    margin: 0 auto;    /* Center container */
+    padding: 0 20px;   /* Side padding for content within container */
 }
 
+/* Default Heading Styles (Desktop) */
+h1, h2, h3, h4 {
+    line-height: 1.3;
+    font-weight: 700;
+    color: #1A1A1A; /* YETO Black / Very Dark Grey */
+}
+
+h1 { font-size: 3.2rem; margin-bottom: 20px; }
+h2 { font-size: 2.2rem; margin-bottom: 40px; text-align: center; }
+h3 { font-size: 1.5rem; margin-bottom: 15px; }
+h4 { font-size: 1.3rem; margin-bottom: 10px; }
+
+p {
+    margin-bottom: 15px;
+    color: #555555;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+a {
+    color: #FF8C00; /* YETO Orange - REPLACE IF NEEDED */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+    color: #E67E00; /* Darker YETO Orange - REPLACE IF NEEDED */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-orange {
+    color: #FF8C00 !important; /* YETO Orange - REPLACE IF NEEDED */
+}
+
+/* Common Button Styles */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-align: center;
+    border: none;
+    line-height: 1.4;
+}
+
+.btn-primary {
+    background-color: #FF8C00; /* YETO Orange */
+    color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #E67E00; /* Darker YETO Orange */
+    color: #FFFFFF;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn .cta-main-text,
+.btn .cta-sub-text {
+    display: block;
+    text-align: center;
+}
+.btn .cta-main-text {
+    /* Font size inherited from .btn */
+}
+.btn .cta-sub-text {
+    font-size: 0.8rem;
+    opacity: 0.85;
+    margin-top: 2px;
+    font-weight: normal;
+}
+
+/* =============================================== */
+/* 2. Site Header
+/* =============================================== */
 .site-header {
-    background-color: #ffffff;
-    padding-top: 15px;
-    padding-bottom: 30px;
-    padding-left: 0;
-    padding-right: 0;
+    background-color: #FFFFFF;
+    padding: 15px 0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1000;
 }
 
 .site-header .container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    width:100%;
+    align-items: center;
+    width: 100%;
     max-width: none;
-    margin:0;
-    padding-left: 30px;
-    padding-right: 30px;
+    margin: 0;
+    padding: 0 30px;
 }
 
-.yeto-logo img {
-    max-height: 50px;
+.logo-link { display: inline-block; }
+.yeto-logo { max-height: 60px; height: auto; }
+
+.header-contact-info {
+    display: flex;
+    align-items: center;
+    text-align: right;
+    margin-top: 5px; /* Initial nudge down */
+}
+.contact-item {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333333;
+    margin-left: 25px;
+    transition: transform 0.2s ease;
+}
+.contact-item:first-child { margin-left: 0; }
+.contact-item a { color: inherit; text-decoration: none; }
+.contact-item a:hover,
+.contact-item a:focus { text-decoration: underline; color: #FF8C00; }
+.contact-item:hover { transform: translateY(-2px); }
+
+/* =============================================== */
+/* 3. Main Navigation
+/* =============================================== */
+.main-navigation {
+    background-color: #1A1A1A; /* YETO Black */
+    padding: 10px 0;
+    position: relative;
+    z-index: 990;
 }
 
+.main-navigation .container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0 30px;
+    display: flex;
+    justify-content: flex-end; /* Default for desktop */
+    align-items: center;
+}
+
+.main-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Desktop horizontal menu */
+    justify-content: flex-end;
+}
+.main-navigation li { margin: 0 5px; }
+.main-navigation a {
+    display: block;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.main-navigation a:hover,
+.main-navigation a:focus { background-color: #FF8C00; color: #1A1A1A; }
+
+.mobile-nav-toggle { display: none; background: transparent; border: none; padding: 10px; cursor: pointer; z-index: 1001; }
+.hamburger-icon { display: block; position: relative; width: 24px; height: 2px; border-radius: 1px; }
+.hamburger-icon::before,
+.hamburger-icon::after { content: ''; position: absolute; left: 0; width: 100%; height: 100%; border-radius: 1px; transition: transform 0.3s ease-out, top 0.3s ease-out, bottom 0.3s ease-out, background-color 0.3s ease-out; }
+.hamburger-icon::before { top: -7px; }
+.hamburger-icon::after { bottom: -7px; }
+
+/* =============================================== */
+/* 4. Hero Section
+/* =============================================== */
 .hero-section {
     background-color: #e9e9e9;
-    color: #1A1A1A;
-    padding: 80px 0;
+    padding: 100px 0;
     min-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 .hero-content {
     background-image: url('images/logistics.jpg');
@@ -58,1164 +223,536 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     text-align: center;
-    max-width: 1200px;
+    max-width: 1250px;
     margin: 0 auto;
-    padding: 70px 70px;
+    padding: 60px 50px;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     position: relative;
     color: #FFFFFF;
 }
-
-.hero-section h1 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.3;
-    color:#FFFFFF;
+.hero-content::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.45); border-radius: inherit; z-index: 1;
 }
+.hero-content > * { position: relative; z-index: 2; }
+.hero-content h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.3; color: #FFFFFF; }
+.hero-content .sub-headline { font-size: 1.5rem; margin-bottom: 30px; line-height: 1.7; color: #f0f0f0; }
+.hero-content .btn.btn-primary { padding: 16px 32px; font-size: 1.15rem; }
 
-.hero-section .sub-headline {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-    line-height: 1.7;
-    color: #f0f0f0;
-}
-
-
-.text-orange {
-    color: #FF8C00;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
-    font-size: 1.15rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-align: center;
-}
-
-.btn-primary {
-    background-color: #FF8C00;
-    color: #ffffff;
-    border: none;
-}
-
-.btn.btn-primary {
-    line-height: 1.3;
-}
-
-.cta-main-text,
-.cta-sub-text {
-    display: block;
-    text-align: center;
-}
-
-.cta-main-text {
-    font-size: 1.15rem;
-    font-weight: 600;
-}
-
-.cta-sub-text {
-    font-size: 0.8rem;
-    opacity: 0.85;
-    margin-top: 2px;
-}
-
-.btn-primary:hover {
-    background-color: #E67E00;
-    transform: translateY(-2px);
-}
-
-.site-footer {
-    background-color: #333;
-    color: #f4f4f4;
-    text-align: center;
-    padding: 40px 0;
-    margin-top: 60px;
-}
-
-.logo-link {
-    display: inline-block;
-}
-
-.yeto-logo {
-    max-height: 75px;
-    height: auto;
-    display: block;
-}
-
-.header-contact-info {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    text-align: right;
-}
-
-.contact-item {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-    margin-left: 25px;
-    transition: transform 0.2s ease;
-}
-
-.contact-item:hover {
-    transform: translateY(-2px);
-}
-
-
-.contact-item:first-child {
-    margin-left: 0;
-}
-
-.contact-item a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.contact-item a:hover {
-    text-decoration: none;
-    color:#E67E00;
-}
-
-.main-navigation .container {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-.main-navigation {
-    background-color: #1A1A1A;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border-top: 1px solid #ddd;
-}
-
-.main-navigation ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.main-navigation li {
-    margin: 0 5px;
-}
-
-.main-navigation a {
-    display: block;
-    color: #FFFFFF;
-    text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 4px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.main-navigation a:hover,
-.main-navigation a:focus {
-    background-color: #FF8C00;
-    color: #1A1A1A;
-}
-
-.fade-in-element {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in-element.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.why-yeto-section {
-    background-color: #f4f4f4;
-    padding: 70px 0;
-}
-
-.why-yeto-section h2 { 
-    text-align: center;
-    font-size: 2.2rem; 
-    font-weight: bold; 
-    color: #333;
-    margin-bottom: 50px;
-    letter-spacing: 0.5px;
-}
-
+/* =============================================== */
+/* 5. Why Choose YETO Section
+/* =============================================== */
+.why-yeto-section { background-color: #FFFFFF; padding: 70px 70px; }
+/* .why-yeto-section h2 uses global h2 */
 .features-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center; 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-items: start;
+    justify-items: center;
 }
-
 .feature-card {
-    background-color: #FFFFFF;
+    background-color: #f9f9f9; 
+    border: 1px solid #eeeeee; 
     border-radius: 8px;
-    padding: 30px 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
-    text-align: center;
-    flex: 1 1 400px; 
-    max-width: 450px;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
+    padding: 25px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    width: 100%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature-card.feature-card-animate.is-visible:hover {
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+.feature-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12); 
 }
 
-
-.feature-card h3 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 30px;
-    margin-top: 20px;
-    line-height: 1.2;
-    letter-spacing: 0.5px;
-}
-
-.feature-card p {
-    font-size: 0.95rem; 
-    line-height: 1.6;
-    color: #555; 
-    flex-grow: 1; 
-}
-
-.feature-icon img {
-    height: 40px;
-    width: auto;
-    display: block;
-    margin: 0 auto;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.feature-card-animate {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    transition-delay: 0.3s;
-}
-
-.feature-card-animate.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.portal-section {
-    background-color: #f4f4f4; 
-    padding: 70px 0;
-    text-align: center; 
-}
-
-.portal-section h2 { 
-    font-size: 2.2rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.portal-intro {
-    font-size: 1.5rem;
-    line-height: 1.2;
-    color: #555;
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-}
-
-.portal-benefits-list {
-    margin-top: 30px;
-}
-
-.portal-benefit-item {
-    max-width: 600px; 
-    margin: 0 auto 40px auto; 
-}
-
-.portal-benefit-icon {
-    margin-bottom: 15px;
-    line-height: 0; 
-}
-
-.portal-benefit-icon img {
-    height: 45px;  
-    width: auto;
-    
-}
-
-.portal-benefit-item h4 { 
-    font-size: 1.3rem; 
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 8px;
-}
-
-.portal-benefit-item p { 
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #555;
-}
-
-.portal-cta-container {
-    margin-top: 30px;
+.feature-icon { 
     text-align: center;
+    margin-bottom: 20px; 
 }
 
-
-.portal-benefit-item-animate {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    transition-delay: 0.1s;
-}
-
-.portal-benefit-item-animate.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.solutions-section {
-    background-color: #f4f4f4;
-    padding: 70px 0;
-    text-align: center; 
-}
-
-.solutions-section h2 {
-    font-size: 2.2rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.solutions-intro { 
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #555;
-    max-width: 750px; 
-    margin: 0 auto 40px auto;
-    text-align: center; 
-    text-wrap: balance;
-}
-
-.solutions-image-container {
-    margin-bottom: 50px; 
-    line-height: 0;    
-}
-
-.solutions-image-container img {
-    max-width: 100%; 
-    height: auto;       
-    border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.1);  
-    display: block;      
-    margin: 0 auto;      
-}
-
-.solutions-pillars {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 30px;    
-    justify-content: space-between;
-    text-align: left; 
-}
-
-.pillar-item {
-    flex: 1 1 300px;
-    text-align: center;
-    border-top: 3px solid #FF8C00;
-    border-bottom: 3px solid #FF8C00;
-    padding-top: 20px;
-    margin-top: 20px;
-}
-   
-
-.pillar-item h4 { 
-    font-size: 1.5rem; 
-    font-weight: 600;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.pillar-item p { 
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #555;
-}
-
-.pillar-item-animate {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    transition-delay: 0.1s;
-}
-
-.pillar-item-animate.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.proof-elements-wrapper {
-    margin-top: 30px; 
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    align-items: start;
-}
-
-
-.proof-item-icon {
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.proof-item-icon img {
-    height: 45px;
-    width: auto;
-}
-
-.proof-item p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #555;
-    margin-bottom: 15px;
-    text-align:center;
-}
-
-.fors-logo-area {
-    margin-bottom: 15px;
-    text-align: center; 
-}
-.fors-logo-area img {
-    max-height: 60px; 
-}
-
-.testimonial-note {
-    font-size: 0.85rem;
-    font-style: italic;
-    color: #666;
-    text-align: center;
-    margin-top: 15px;
-}
-
-.social-proof-section {
-    background-color: #f9f9f9;
-    padding: 70px 0;
-    border-bottom: 10px solid #FF8C00;
-}
-
-.social-proof-section h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.section-main-logo-area { 
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-main-logo-area img {
-    max-height: 80px;
-    width: auto;
+.feature-icon img { 
+    height: 48px; 
+    width: auto; 
     display: inline-block;
 }
 
-
-.proof-item {
-    background-color: #f9f9f9;
-    padding: 25px 25px 35px 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-    margin: 0; 
-    max-width: 700px; 
-    text-align: center;
-    display: flex;
-    flex-direction: column; 
+.feature-card h3 { 
+    font-size: 1.4rem;
+    font-weight: 600; 
+    color: #1A1A1A; 
+    margin-bottom: 20px;
+    text-align: left; 
 }
 
-.proof-item:last-child {
+    .feature-card p { 
+    font-size: 0.95rem; 
+    line-height: 1.6; 
+    color: #555555; 
+    text-align: left;
     margin-bottom: 0;
+}
+
+/* =============================================== */
+/* 6. YETO Portal Section
+/* =============================================== */
+.portal-section { padding: 70px 0; background-color: #f4f4f4; }
+/* .portal-section h2 uses global h2 */
+.portal-intro { 
+    text-align: center; 
+    font-size: 1.1rem; 
+    color: #555555; 
+    max-width: 750px; 
+    margin: 0 auto 40px auto; 
+}
+
+.portal-benefits-list { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    align-items: start; 
+}
+
+.portal-benefit-item { 
+    background-color: #FFFFFF; 
+    padding: 30px 25px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portal-benefit-icon { 
+    margin-bottom: 15px; 
+}
+
+.portal-benefit-icon img { 
+    height: 48px; 
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.portal-benefit-item:hover .portal-benefit-icon img { 
+    transform: scale(1.15); 
+}
+
+
+.portal-benefit-item h4 { 
+    font-size: 1.3rem; 
+    color: #1A1A1A; 
+    margin-bottom: 10px; 
+}
+
+.portal-benefit-item p { 
+    font-size: 0.95rem; 
+    line-height: 1.6; 
+    color: #555555; 
+    flex-grow: 1; 
+}
+
+.portal-cta-container { 
+    text-align: center; 
+    margin-top: 40px; 
+}
+
+/* =============================================== */
+/* 7. Transport Solutions Section
+/* =============================================== */
+.solutions-section { 
+    padding: 70px 0; 
+    background-color: #FFFFFF; 
+}
+
+/* .solutions-section h2 uses global h2 */
+.solutions-intro { 
+    text-align: center; 
+    font-size: 1.1rem; 
+    color: #555555; 
+    max-width: 750px; 
+    margin: 0 auto 40px auto; 
+}
+
+.solutions-image-container { 
+    margin-bottom: 40px; 
+    text-align: center; 
+}
+
+.solutions-image-container img { 
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+}
+
+.solutions-pillars { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    align-items: stretch; 
+}
+
+.pillar-item { 
+    background-color: #f9f9f9; 
+    padding: 25px; 
+    border-radius: 8px; 
+    text-align: left; 
+    display: flex;
+    flex-direction: column;
+}
+
+.pillar-item h4 { 
+    font-size: 1.3rem; 
+    color: #1A1A1A; 
+    margin-bottom: 10px; 
+}
+
+.pillar-item p { 
+    font-size: 0.95rem; 
+    line-height: 1.6; 
+    color: #555555; 
+}
+
+.pillar-icon {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.pillar-icon img {
+    height: 40px;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =============================================== */
+/* 8. Social Proof Section
+/* =============================================== */
+.social-proof-section { 
+    background-color: #f9f9f9; 
+    padding: 70px 0; 
+}
+
+.social-proof-section h2 { 
+    margin-bottom: 30px; 
+}
+
+.section-main-logo-area { 
+    text-align: center; 
+    margin-bottom: 40px; 
+}
+
+.section-main-logo-area img { 
+    max-height: 70px; 
+    width: auto; 
+    display: inline-block; 
+}
+
+.proof-elements-wrapper { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    align-items: stretch; 
+    margin-bottom: 50px; 
+}
+
+.proof-item { 
+    background-color: #FFFFFF; 
+    padding: 30px 25px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.proof-item-icon { 
+    text-align: center; 
+    margin-bottom: 15px;
+    width: 60px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.proof-item-icon img { 
+    height: 45px; 
+    width: auto; 
 }
 
 .proof-item h4 { 
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 10px;
-    text-align: center;
+    font-size: 1.3rem; 
+    font-weight: 600; 
+    color: #333; 
+    margin-bottom: 10px; 
 }
 
-
-.proof-item p:last-child {
-    margin-bottom: 0;
+.proof-item p { 
+    font-size: 1rem; 
+    line-height: 1.6; 
+    color: #555; 
+    margin-bottom: 15px; 
+    flex-grow: 1; 
 }
 
-
-.proof-item.track-record h4 {
-    color: #333;
+.proof-item p:last-child { 
+    margin-bottom: 0; 
 }
 
-.proof-item.testimonials {
-    background-color: #f9f9f9;
-    padding: 25px 30px;
-    margin-bottom: 60px;
-    text-align: center;
+/* .proof-item.track-record h4 - Add specific styles if different from base .proof-item h4 */
+.testimonials-display-area { 
+    text-align: center; 
+    margin-top: 50px; 
 }
 
-.proof-item.testimonials h4 {
-    margin-bottom: 25px;
-}
-.testimonial-item {
-    border-left: 4px solid #FF8C00; 
-    padding: 25px 25px 35px 25px;
-    margin: 0 auto 25px auto;
-    text-align: left;
-    max-width: 600px;
-    background-color: #FFFFFF;
-    border-radius: 0 4px 4px 0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-.testimonial-item:last-of-type {
-    margin-bottom: 10px;
-}
-
-.testimonial-quote .testimonial-quote{
-    font-style: italic;
-    color: #FF8C00;
-    margin-bottom: 10px;
-}
-
-.testimonial-quote::before {
-    content: '\201C';
-    font-family: Georgia, serif; 
-    font-size: 3.5em;
-    color: #FF8C00;
-    opacity: 0.6;
-    line-height: 0.1;
-    margin-right: 0.1em;
-    vertical-align: -0.3em;
-}
-
-.testimonial-source {
-    font-size: 0.9rem;
-    color: #333;
-    font-style: normal;
-    text-align: right;
+.testimonials-display-area .proof-item-icon img { 
     display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 45px; 
+    width: auto;
+    margin-bottom: 15px; 
 }
 
-.testimonial-note {
-    font-size: 1rem;
-    font-style: italic;
-    color: #777;
-    text-align: center;
-    margin-top: 20px;
+.testimonials-display-area h4 { 
+    font-size: 1.8rem; 
+    font-weight: 600; 
+    color: #333; 
+    margin-top: 0; 
+    margin-bottom: 30px; 
 }
 
+.testimonial-item { 
+    border-left: 4px solid #FF8C00; 
+    padding: 25px 25px 30px 25px; 
+    margin: 0 auto 25px auto; 
+    text-align: left; 
+    max-width: 650px; 
+    background-color: #FFFFFF; 
+    border-radius: 0 8px 8px 0; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+}
 
-#hero,
+.testimonial-item:last-of-type { 
+    margin-bottom: 15px; 
+}
+
+.testimonial-item .testimonial-quote { /* Made selector more specific */
+    font-style: italic; 
+    color: #555555; 
+    margin-bottom: 15px; 
+    line-height: 1.7;
+}
+
+.testimonial-quote::before { 
+    content: '\201C'; 
+    font-family: Georgia, serif; 
+    font-size: 3em; 
+    color: #FF8C00; 
+    opacity: 0.7; 
+    line-height: 0.1; 
+    margin-right: 0.05em; 
+    vertical-align: -0.25em; 
+}
+
+.testimonial-source { 
+    font-size: 0.9rem; 
+    color: #1A1A1A; 
+    font-style: normal; 
+    font-weight: bold; 
+    text-align: right; 
+    display: block; 
+}
+
+.testimonial-note { 
+    font-size: 0.85rem; 
+    font-style: italic; 
+    color: #777; 
+    text-align: center; 
+    margin-top: 20px; 
+}
+
+/* =============================================== */
+/* 9. Calendly Booking Section
+/* =============================================== */
+.calendly-booking-section { padding: 70px 0; background-color: #FFFFFF; }
+/* .calendly-booking-section h2 uses global h2 */
+.calendly-booking-section .section-intro-text { text-align: center; font-size: 1.1rem; color: #555555; max-width: 700px; margin: 0 auto 40px auto; }
+.calendly-embed-wrapper { max-width: 480px; min-height: 700px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+.calendly-booking-section .privacy-note { text-align: center; margin-top: 30px; font-size: 0.85rem; color: #666; }
+
+/* =============================================== */
+/* 10. Footer
+/* =============================================== */
+.site-footer { background-color: #1A1A1A; color: #cccccc; padding: 60px 0 40px 0; font-size: 0.9rem; line-height: 1.7; }
+.footer-columns { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; }
+.footer-column { flex: 1; min-width: 250px; margin-bottom: 30px; }
+.footer-column h4 { font-size: 1.1rem; color: #FFFFFF; margin-bottom: 20px; font-weight: 600; }
+.footer-column p, .footer-column address { margin-bottom: 10px; color: #cccccc; }
+.footer-column address { font-style: normal; }
+.footer-column a { color: #FFFFFF; text-decoration: none; }
+.footer-column a:hover, .footer-column a:focus { color: #FF8C00; text-decoration: underline; }
+.footer-links { list-style: none; padding-left: 0; margin: 0; }
+.footer-links li { margin-bottom: 8px; }
+.copyright { font-size: 0.85rem; color: #a0a0a0; margin-top: 20px; }
+
+/* =============================================== */
+/* 11. Animation Styles
+/* =============================================== */
+.fade-in-element { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.fade-in-element.is-visible { opacity: 1; transform: translateY(0); }
+
+/* =============================================== */
+/* 12. Section Bottom Borders (Global)
+/* =============================================== */
+#hero, /* Hero doesn't typically have a thick bottom border, consider removing or styling differently */
 .why-yeto-section,
 .portal-section,
 .solutions-section,
 .social-proof-section,
-.calendly-booking-section { 
-    border-bottom: 10px solid #FF8C00;
-}
-
-.testimonials-display-area h4 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #333;
-    margin-top: 10px;
-    margin-bottom:30px;
-}
-
 .calendly-booking-section {
-    padding: 70px 0;
-    background-color: #f4f4f4;
+    border-bottom: 10px solid #FF8C00; /* YETO Orange */
 }
+/* Footer border if needed - example:
+.site-footer { border-top: 10px solid #FF8C00; }
+*/
 
-.calendly-booking-section h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.calendly-booking-section .section-intro-text {
-    text-align:center;
-    font-size: 1.1rem;
-    color: #555;
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-}
-
-.calendly-booking-section .privacy-note {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 0.85rem;
-    color: #666;
-}
-
-.calendly-booking-section h2::after {
-    content: '';
-    display: block;
-    width: 60px; /* Adjust width */
-    height: 3px;  /* Adjust thickness */
-    background-color: #FF8C00; /* YETO Orange */
-    margin: 15px auto 0; /* Center it below the H2 */
-}
-
-.site-footer {
-    background-color: #1A1A1A; /* YETO Black or a dark grey like #222 or #333 */
-    color: #cccccc;           /* Light grey for general text */
-    padding: 60px 0 40px 0;  /* Generous top padding, bit less bottom. Adjust as needed. */
-    font-size: 0.9rem;       /* Slightly smaller base font for footer content */
-    line-height: 1.7;
-}
-
-
-.footer-columns {
-    display: flex;
-    flex-wrap: wrap;      /* Allows columns to stack on smaller screens */
-    justify-content: space-between; /* Distributes space between columns */
-    gap: 30px;            /* Space between columns when they wrap or if there's extra space */
-}
-
-.footer-column {
-    flex: 1;              /* Allows columns to share space equally */
-    min-width: 250px;     /* Minimum width before wrapping, helps with responsiveness */
-    margin-bottom: 30px;  /* Space below columns when they stack on mobile */
-}
-
-.footer-column h4 {
-    font-size: 1.1rem;    /* Size for column titles */
-    color: #FFFFFF;       /* White for titles to make them stand out more */
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-.footer-column p,
-.footer-column address {
-    margin-bottom: 10px;
-    color: #cccccc; /* Default text color for paragraphs and address */
-}
-
-.footer-column address {
-    font-style: normal; /* Removes default italic styling from <address> tag */
-}
-
-.footer-column a {
-    color: #FFFFFF;       /* White for links to make them clear */
-    text-decoration: none;
-}
-
-.footer-column a:hover,
-.footer-column a:focus {
-    color: #FF8C00;       /* YETO Orange on hover (use your exact hex code) */
-    text-decoration: underline;
-}
-
-/* Specific styling for the list of links in the third column */
-.footer-links {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-}
-
-.footer-links li {
-    margin-bottom: 8px;
-}
-
-/* Copyright text specifically */
-.copyright {
-    font-size: 0.85rem;
-    color: #a0a0a0;   /* A slightly more subdued light grey */
-    margin-top: 20px; /* Extra space above the copyright */
-}
-
-/* Hamburger Menu Toggle Button Styling */
-.mobile-nav-toggle {
-    display: none; /* Initially hidden on desktop */
-    background: transparent;
-    border: none;
-    padding: 10px; /* Make it easier to tap */
-    cursor: pointer;
-    z-index: 1000; /* Ensure it's on top if other elements overlap */
-    /* We'll position this with flexbox on its parent later if needed,
-       or you can use absolute positioning within the nav bar for mobile. */
-}
-
-.hamburger-icon {
-    display: block;
-    position: relative;
-    width: 24px;  /* Width of the hamburger lines */
-    height: 2px;  /* Thickness of the middle line */
-    background-color: #FFFFFF; /* Color of the middle line (YETO Black or your preferred icon color) */
-    border-radius: 1px;
-}
-
-.hamburger-icon::before,
-.hamburger-icon::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%; /* Same thickness as the middle line */
-    background-color: #FFFFFF; /* Color of the top/bottom lines */
-    border-radius: 1px;
-    transition: transform 0.3s ease-out, top 0.3s ease-out, bottom 0.3s ease-out; /* For 'X' animation later */
-}
-
-.hamburger-icon::before {
-    top: -7px; /* Space between middle and top line */
-}
-
-.hamburger-icon::after {
-    bottom: -7px; /* Space between middle and bottom line */
-}
-
-/* Media Query for Tablets and Mobile Phones */
-/* We'll use 768px as a common breakpoint. Adjust as needed. */
+/* =============================================== */
+/* 13. Responsive Styles (Mobile & Tablet)
+/* =============================================== */
 @media (max-width: 767px) {
-    .main-navigation .container {
-        display: flex;
-        justify-content: space-between; /* Puts toggle on one side, (future) logo/title on other */
-        align-items: center;
-        position: relative;
-    }
-
-    /* Hero Section Adjustments for Mobile */
-    .hero-section {
-        padding: 40px 0;     /* Reduce top/bottom padding of the overall hero section */
-        min-height: auto;    /* Allow height to be more content-driven, or set a smaller vh e.g., 60vh */
-    }
-
-    .hero-content {
-        padding: 30px 20px;   /* Drastically reduce padding inside the content box */
-        max-width: 90%;       /* Allow the content box to use more of the screen width */
-                               /* This helps with the aspect ratio for the background image */
-        /* You can also experiment with min-height on .hero-content if needed, e.g., min-height: 300px;
-           but reducing padding is usually the first step. */
-    }
-
-    .hero-content h1 { /* Or .hero-section h1 if that's your precise selector */
-        font-size: 2rem;    /* Significantly reduce H1 font size (was 3.5rem) */
-        line-height: 1.25;  /* Adjust line height for smaller font */
-        margin-bottom: 15px; /* Reduce space below H1 */
-    }
-
-    .hero-content .sub-headline { /* Or .hero-section .sub-headline */
-        font-size: 1rem;      /* Reduce sub-headline font size (was 1.5rem) */
-        line-height: 1.5;     /* Adjust line height */
-        margin-bottom: 25px;  /* Reduce space below sub-headline */
-    }
-
-    /* Adjustments for the CTA button within the hero */
-    .hero-content .btn.btn-primary { /* Targeting the specific button in hero */
-        font-size: 0.95rem; /* Reduce font size of the main text in button */
-        padding: 12px 22px; /* Reduce button padding */
-    }
-
-    .hero-content .cta-main-text { /* If you want to be more specific for button's main text line */
-        font-size: 0.95rem; /* Ensure this is adjusted if not inheriting from .btn properly */
-    }
-    .hero-content .cta-sub-text {
-        font-size: 0.75rem; /* Reduce font size of the sub-text in button */
-        margin-top: 1px;    /* Adjust spacing if needed */
-    }
-}
-
-     .header-contact-info {
-        flex-direction: column; /* Stack phone and email vertically */
-        align-items: flex-end;  /* Align items to the right within their new column layout */
-                                /* Use 'flex-start' for left, or 'center' for centered */
-        margin-top: 5px;       /* Reduce top margin slightly for mobile if needed */
-    }
-
-     /* Responsive Styles for "Why Choose YETO?" Section */
-    .why-yeto-section h2 {
-        font-size: 1.8rem;    /* Reduce section headline size (was ~2.2rem) */
-        margin-bottom: 30px;  /* Reduce space below headline */
-    }
-
-    .features-grid {
-        /* If your .features-grid is using CSS Grid like:
-           display: grid;
-           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); (or similar 300px)
-           gap: 30px;
-           align-items: start;
-           This setup is already quite responsive. The cards should automatically
-           stack into a single column if the screen isn't wide enough for multiple
-           250px/300px items. You might not need to change grid-template-columns here
-           unless you want to force a single column sooner.
-        */
-        /* If you wanted to force a single column layout for sure on mobile: */
-        /* grid-template-columns: 1fr; */
-        gap: 20px; /* You could reduce the gap between cards on mobile */
-    }
-
-    .feature-card {
-        padding: 20px; /* Reduce padding inside each card (was ~30px 25px) */
-        /* If using Flexbox for .features-grid & cards aren't stacking to full width: */
-        /* flex-basis: 100%; */
-        /* width: 100%; */
-    }
-
-    .feature-icon {
-        /* If using font-size for icon scaling: */
-        /* font-size: 2.5rem; /* Reduce icon size (was ~3rem) */
-        margin-bottom: 15px; /* Reduce space below icon */
-    }
-    .feature-icon img { /* If your icons are <img> tags */
-        height: 40px;  /* Reduce image icon height (was ~45px-60px) */
-        /* width will be auto */
-    }
-
-    .feature-card h3 {
-        font-size: 1.2rem;   /* Reduce card heading size (was ~1.4rem) */
-        margin-bottom: 8px;  /* Reduce space below card heading */
-    }
-
-    .feature-card p {
-        font-size: 0.9rem;   /* Reduce card paragraph size (was ~0.95rem or 1rem) */
-        line-height: 1.5;    /* Adjust line height for smaller font */
-    }
-
-     /* Responsive Styles for "YETO Portal" Section */
-    .portal-section h2 {
-        font-size: 1.8rem;    /* Adjust section headline size */
-        margin-bottom: 20px;  /* Adjust space below headline */
-    }
-
-    .portal-intro {
-        font-size: 0.95rem;   /* Adjust intro paragraph size */
-        line-height: 1.6;
-        margin-bottom: 30px;  /* Adjust space below intro */
-        max-width: 95%;       /* Ensure it doesn't touch edges */
-    }
-
-    .portal-benefits-list {
-        /* If this was display:flex or display:grid for desktop columns,
-           you might need to change it for mobile stacking if items don't
-           naturally stack well or if you want to override column behavior. */
-        display: flex; /* Assuming it might have been flex for desktop */
-        flex-direction: column; /* Stack benefit items vertically */
-        gap: 20px; /* Space between stacked benefit items */
-    }
-
-    .portal-benefit-item {
-        padding: 20px; /* Reduce padding inside each benefit item if it has any */
-        /* If items had a fixed width or flex-basis for columns,
-           ensure they can now take more width: */
-        /* flex-basis: auto; */ /* Reset flex-basis if used */
-        /* width: 100%; */    /* Or close to it */
-        text-align: center; /* If you want icon, h4, p centered within each item */
-    }
-
-    .portal-benefit-icon img {
-        height: 40px;  /* Adjust icon size */
-        margin-bottom: 10px;
-    }
-
-    .portal-benefit-item h4 {
-        font-size: 1.2rem;   /* Adjust benefit item headline size */
-        margin-bottom: 8px;
-    }
-
-    .portal-benefit-item p {
-        font-size: 0.9rem;   /* Adjust benefit item paragraph size */
-        line-height: 1.5;
-    }
-
-    .portal-cta-container {
-        margin-top: 30px; /* Adjust space above the CTA button */
-    }
-
-    .portal-cta.btn.btn-primary { /* Targeting the specific button in this section */
-        font-size: 0.95rem; /* Match other mobile buttons or adjust */
-        padding: 12px 22px; /* Match other mobile buttons or adjust */
-        /* Ensure it's display: inline-block or block and centered if needed */
-    }
-
-     /* Responsive Styles for "Transport Solutions" Section */
-    .solutions-section h2 {
-        font-size: 1.8rem;    /* Adjust section headline size */
-        margin-bottom: 20px;  /* Adjust space below headline */
-    }
-
-    .solutions-intro {
-        font-size: 0.95rem;   /* Adjust intro paragraph size */
-        line-height: 1.6;
-        margin-bottom: 30px;  /* Adjust space below intro */
-        max-width: 95%;       /* Ensure it doesn't touch edges */
-    }
-
-    .solutions-image-container {
-        margin-bottom: 30px; /* Space below the image */
-    }
-
-    /* Ensure the image itself is responsive if not already globally styled */
-    .solutions-image-container img {
-        max-width: 100%; /* Makes sure image scales down */
-        height: auto;    /* Maintains aspect ratio */
-        display: block;  /* Removes extra space below image */
-        margin: 0 auto;  /* Centers image if it's narrower than container */
-    }
-
-    .solutions-pillars {
-        /* If this was display:flex or display:grid for desktop columns,
-           change it for mobile stacking. */
-        display: flex;          /* Assuming it might have been flex for desktop */
-        flex-direction: column; /* Stack pillar items vertically */
-        gap: 25px;              /* Space between stacked pillar items */
-    }
-
-    .pillar-item {
-        padding: 15px; /* Reduce padding inside each pillar item if it has any */
-        /* If items had a fixed width or flex-basis for columns,
-           ensure they can now take more width: */
-        /* flex-basis: auto; */ /* Reset flex-basis if used */
-        /* width: 100%; */    /* Or close to it */
-        /* If it had a border or shadow, ensure it still looks good */
-    }
-
-    .pillar-item h4 {
-        font-size: 1.15rem;  /* Adjust pillar item headline size */
-        margin-bottom: 8px;
-    }
-
-    .pillar-item p {
-        font-size: 0.9rem;   /* Adjust pillar item paragraph size */
-        line-height: 1.5;
-    }
-
-    @media (max-width: 767px) {
-
-    /* ... your existing mobile styles for header, nav, hero, etc. ... */
-
-    /* Responsive Styles for "Social Proof" Section */
-    .social-proof-section h2 {
-        font-size: 1.8rem;    /* Adjust section headline size */
-        margin-bottom: 25px;  /* Adjust space below headline */
-    }
-
-    .section-main-logo-area img {
-        max-height: 60px; /* Reduce size of the main FORS logo */
-        margin-bottom: 30px; /* Adjust space below it */
-    }
-
-    .proof-elements-wrapper {
-        /* The grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-           is already responsive and should stack items to a single column
-           when the screen is too narrow for multiple 250px items.
-           You might only adjust the gap if it feels too large on mobile. */
-        gap: 20px; /* Reduce gap between proof items */
-    }
-
-    .proof-item {
-        padding: 20px; /* Reduce padding inside each general proof item */
-        /* max-width: 700px; on desktop will be fine; on mobile, the grid column
-           width (1fr when stacked) will take precedence if it's narrower. */
-    }
-
-    .proof-item-icon img {
-        height: 35px;  /* Adjust icon size within proof items */
-        margin-bottom: 10px;
-    }
-
-    .proof-item h4 {
-        font-size: 1.15rem; /* Adjust heading size within proof items */
-        margin-bottom: 8px;
-    }
-
-    .proof-item p {
-        font-size: 0.9rem;   /* Adjust paragraph size within proof items */
-        line-height: 1.5;
-        margin-bottom: 10px; /* Ensure consistent bottom margin for paragraphs */
-    }
-    .proof-item p:last-child {
-        margin-bottom: 0; /* Keep this to remove margin from the very last paragraph */
-    }
-
-
-    /* Styles for the dedicated testimonials area within Social Proof */
-    .testimonials-display-area {
-        margin-top: 40px; /* Adjust space above the testimonials block */
-    }
-
-    .testimonials-display-area .proof-item-icon img { /* Icon above "What Our Valued Partners Say" */
-        height: 40px; /* Adjust size */
-        margin-bottom: 10px;
-    }
-
-    .testimonials-display-area h4 { /* "What Our Valued Partners Say" title */
-        font-size: 1.5rem; /* Adjust size */
-        margin-bottom: 20px; /* Adjust space below */
-    }
-
-    .testimonial-item {
-        padding: 20px;       /* Reduce padding inside individual testimonial cards */
-        padding-left: 25px;  /* Keep a bit more left padding if using the border-left for visual separation from the border */
-        max-width: 95%;      /* Allow it to be almost full width of its centered container */
-        margin-bottom: 20px; /* Space between stacked testimonial cards */
-        /* border-left-width: 3px; /* Optionally reduce border thickness */
-    }
-
-    .testimonial-quote {
-        font-size: 0.95rem;  /* Adjust quote text size */
-        line-height: 1.6;
-        margin-bottom: 8px; /* Ensure !important is removed and this applies */
-    }
-
-    .testimonial-quote::before {
-        font-size: 2.5em;    /* Adjust quote mark size if needed */
-        vertical-align: -0.25em; /* May need slight tweak with font size changes */
-    }
-
-    .testimonial-source {
-        font-size: 0.85rem; /* Adjust source text size */
-    }
-
-    .testimonial-note {
-        font-size: 0.8rem;   /* Adjust note text size */
-        margin-top: 15px;
-    }
-}
-
-    /* Responsive Styles for Calendly Booking Section */
-    .calendly-booking-section {
-        padding: 40px 0; /* Reduce overall section padding */
-    }
-
-    .calendly-booking-section h2 {
-        font-size: 1.8rem;    /* Adjust section headline size */
-        margin-bottom: 15px;  /* Adjust space below headline */
-    }
-
-    .calendly-booking-section .section-intro-text {
-        font-size: 0.95rem;   /* Adjust intro paragraph size */
-        line-height: 1.6;
-        max-width: 90%;       /* Make its max-width relative for better fit */
-        margin-bottom: 30px;  /* Adjust space below intro, before Calendly embed */
-    }
-
-
-    .calendly-booking-section .privacy-note {
-        font-size: 0.8rem;   /* Adjust privacy note size */
-        margin-top: 25px;    /* Adjust space above privacy note */
-        max-width: 90%;      /* Allow text to wrap nicely */
-        margin-left: auto;   /* Center if max-width is applied */
-        margin-right: auto;  /* Center if max-width is applied */
-    }
-
-
-
-    .contact-item {
-        font-size: 0.85rem;
-        margin-left: 0; 
-        margin-bottom: 5px;
-    }
-
-    .contact-item:last-child {
-        margin-bottom: 0;
-    }
-
-    
-    .site-header {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-
-    .yeto-logo {
-        max-height: 40px;
-    }
-
-    .main-navigation ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #1A1A1A;
-        padding: 10px 0;
-        margin: 0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        z-index: 999;
-    }
-
-    /* This class will be toggled by JavaScript */
-    .main-navigation ul.nav-open {
-        display: flex; /* Show the menu as a flex column when open */
-    }
-
-    .main-navigation ul.nav-open li {
-        width: 100%;
-        text-align: center; /* Center the link text */
-        margin: 0; /* Reset any desktop margins */
-    }
-
-    .main-navigation ul.nav-open a {
-        display: block; /* Make the whole area clickable */
-        padding: 15px 20px; /* Generous padding for easy tapping */
-        width: 100%;
-        color: #FFFFFF; /* White text */
-        text-decoration: none;
-        border-bottom: 1px solid #333333; /* Subtle separator between links */
-    }
-
-    .main-navigation ul.nav-open li:last-child a {
-        border-bottom: none; /* No border on the last item */
-    }
-
-    .main-navigation ul.nav-open a:hover,
-    .main-navigation ul.nav-open a:focus {
-        background-color: #FF8C00; /* YETO Orange on hover */
-        color: #1A1A1A;           /* Dark text on hover */
-    }
-
-    .mobile-nav-toggle {
-        display: block; 
-    }
-
-
-    .mobile-nav-toggle {
-        display: block; 
-    }
-
-.mobile-nav-toggle.is-active .hamburger-icon {
-    background-color: transparent; 
-}
-
-.mobile-nav-toggle.is-active .hamburger-icon::before {
-    background-color: #FF8C00; /* YETO Orange (use your exact hex code) */
-    top: 0; /* Align to the center for rotation */
-    transform: rotate(45deg);
-}
-
-.mobile-nav-toggle.is-active .hamburger-icon::after {
-    background-color: #FF8C00; /* YETO Orange (use your exact hex code) */
-    bottom: 0; /* Align to the center for rotation */
-    transform: rotate(-45deg);
+
+    /* --- Global Mobile Adjustments --- */
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.7rem; margin-bottom: 25px; }
+    h3 { font-size: 1.3rem; margin-bottom: 10px; }
+    h4 { font-size: 1.1rem; margin-bottom: 8px; }
+
+    .container { width: 90%; padding: 0 15px; }
+
+    /* --- Header (Mobile) --- */
+    .site-header { padding: 10px 0; }
+    .site-header .container { padding: 0 15px; align-items: center; }
+    .yeto-logo { max-height: 45px; }
+    .header-contact-info { flex-direction: column; align-items: flex-end; margin-top: 0; }
+    .contact-item { font-size: 0.8rem; margin-left: 0; margin-bottom: 3px; }
+    .contact-item:last-child { margin-bottom: 0; }
+
+    /* --- Main Navigation (Mobile) --- */
+    .main-navigation .container { justify-content: flex-end; padding: 0 15px; }
+    .main-navigation ul { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background-color: #1A1A1A; padding: 0; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 999; margin:0; }
+    .main-navigation ul.nav-open { display: flex; }
+    .main-navigation ul.nav-open li { width: 100%; text-align: left; margin:0; }
+    .main-navigation ul.nav-open a { padding: 12px 20px; border-bottom: 1px solid #333333; font-size: 1rem; }
+    .main-navigation ul.nav-open li:last-child a { border-bottom: none; }
+    .mobile-nav-toggle { display: block; }
+    .hamburger-icon, .hamburger-icon::before, .hamburger-icon::after { background-color: #FFFFFF; }
+    .mobile-nav-toggle.is-active .hamburger-icon { background-color: transparent; }
+    .mobile-nav-toggle.is-active .hamburger-icon::before { background-color: #FF8C00; top: 0; transform: rotate(45deg); }
+    .mobile-nav-toggle.is-active .hamburger-icon::after { background-color: #FF8C00; bottom: 0; transform: rotate(-45deg); }
+
+    /* --- Hero Section (Mobile) --- */
+    .hero-section { padding: 40px 0; min-height: auto; }
+    .hero-content { padding: 30px 15px; max-width: 95%; }
+    .hero-content h1 { font-size: 2rem; line-height: 1.2; margin-bottom: 15px; }
+    .hero-content .sub-headline { font-size: 1rem; line-height: 1.5; margin-bottom: 25px; }
+    .hero-content .btn.btn-primary { font-size: 0.9rem; padding: 12px 20px; }
+    .hero-content .btn.btn-primary .cta-main-text { font-size: 0.9rem; }
+    .hero-content .btn.btn-primary .cta-sub-text { font-size: 0.7rem; }
+
+    /* --- Why YETO Section (Mobile) --- */
+    .why-yeto-section { padding: 50px 0; }
+    /* .why-yeto-section h2 uses mobile global h2 */
+    .features-grid { grid-template-columns: 1fr; gap: 20px; }
+    .feature-card { padding: 20px; }
+    .feature-icon img { height: 40px; }
+    /* .feature-card h3 uses mobile global h3 */
+    .feature-card p { font-size: 0.9rem; line-height: 1.5; }
+
+    /* --- Portal Section (Mobile) --- */
+    .portal-section { padding: 50px 0; }
+    /* .portal-section h2 uses mobile global h2 */
+    .portal-intro { font-size: 0.9rem; margin-bottom: 30px; max-width: 95%; }
+    .portal-benefits-list { grid-template-columns: 1fr; gap: 20px; }
+    .portal-benefit-item { padding: 20px; text-align: center; }
+    .portal-benefit-icon img { height: 40px; margin-bottom: 10px; }
+    /* .portal-benefit-item h4 uses mobile global h4 */
+    .portal-benefit-item p { font-size: 0.9rem; line-height: 1.5; }
+    .portal-cta-container { margin-top: 30px; }
+    .portal-cta.btn.btn-primary { font-size: 0.9rem; padding: 12px 20px; }
+
+    /* --- Solutions Section (Mobile) --- */
+    .solutions-section { padding: 50px 0; }
+    /* .solutions-section h2 uses mobile global h2 */
+    .solutions-intro { font-size: 0.9rem; margin-bottom: 30px; max-width: 95%; }
+    .solutions-image-container { margin-bottom: 30px; }
+    .solutions-pillars { grid-template-columns: 1fr; gap: 20px; }
+    .pillar-item { padding: 20px; text-align: left; }
+    /* .pillar-item h4 uses mobile global h4 */
+    .pillar-item p { font-size: 0.9rem; line-height: 1.5; }
+
+    /* --- Social Proof Section (Mobile) --- */
+    .social-proof-section { padding: 50px 0; }
+    /* .social-proof-section h2 uses mobile global h2 */
+    .section-main-logo-area img { max-height: 50px; margin-bottom: 25px; }
+    .proof-elements-wrapper { grid-template-columns: 1fr; gap: 20px; margin-bottom: 30px; }
+    .proof-item { padding: 20px; max-width: 100%; }
+    .proof-item-icon img { height: 35px; margin-bottom: 10px; }
+    /* .proof-item h4 uses mobile global h4 */
+    .proof-item p { font-size: 0.9rem; line-height: 1.5; margin-bottom: 10px; }
+
+    .testimonials-display-area { margin-top: 30px; }
+    .testimonials-display-area .proof-item-icon img { height: 35px; }
+    .testimonials-display-area h4 { font-size: 1.4rem; margin-bottom: 20px; }
+    .testimonial-item { padding: 20px; padding-left: 25px; max-width: 100%; margin-bottom: 20px; }
+    .testimonial-quote { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .testimonial-quote::before { font-size: 2.5em; vertical-align: -0.25em; }
+    .testimonial-source { font-size: 0.8rem; }
+    .testimonial-note { font-size: 0.75rem; margin-top: 15px; }
+
+    /* --- Calendly Booking Section (Mobile) --- */
+    .calendly-booking-section { padding: 40px 0; }
+    /* .calendly-booking-section h2 uses mobile global h2 */
+    .calendly-booking-section .section-intro-text { font-size: 0.9rem; max-width: 95%; margin-bottom: 25px; }
+    .calendly-embed-wrapper { max-width: 100%; min-height: 650px; }
+    .calendly-booking-section .privacy-note { font-size: 0.75rem; margin-top: 20px; max-width: 95%; }
+
+    /* --- Footer (Mobile) --- */
+    .site-footer { padding: 30px 0 20px 0; font-size: 0.8rem; }
+    .footer-columns { flex-direction: column; align-items: center; gap: 0; }
+    .footer-column { min-width: 100%; margin-bottom: 25px; text-align: center; }
+    .footer-column:last-child { margin-bottom: 0; }
+    .footer-column h4 { font-size: 1rem; margin-bottom: 10px; }
+    .footer-column address, .footer-column p { text-align: center; } /* Ensures address lines are centered */
+    .footer-links li { text-align: center; }
+    .copyright { margin-top: 15px; font-size: 0.75rem; }
+
+} /* End of @media (max-width: 767px) */
+
+
+/* Optional: Further adjustments for very small screens */
+@media (max-width: 480px) {
+    /* Global heading adjustments for very small screens */
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.15rem; }
+    h4 { font-size: 1rem; }
+
+    .hero-content h1 { font-size: 1.75rem; } /* Specific override for hero H1 if needed */
+    .hero-content .sub-headline { font-size: 0.9rem; }
+    .hero-content .btn.btn-primary { font-size: 0.85rem; padding: 10px 18px; }
+    .hero-content .btn.btn-primary .cta-main-text { font-size: 0.85rem; }
+    .hero-content .btn.btn-primary .cta-sub-text { font-size: 0.65rem; }
+
+    /* Add more specific overrides for other sections here if needed for extra small screens */
+    .contact-item { font-size: 0.75rem; }
+    .feature-card p, .portal-benefit-item p, .pillar-item p, .proof-item p { font-size: 0.85rem; }
+    .testimonial-quote { font-size: 0.85rem; }
+    .testimonial-source { font-size: 0.75rem; }
 }
