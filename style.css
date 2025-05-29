@@ -801,12 +801,80 @@ body {
 
 /* Media Query for Tablets and Mobile Phones */
 /* We'll use 768px as a common breakpoint. Adjust as needed. */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .main-navigation .container {
         display: flex;
         justify-content: space-between; /* Puts toggle on one side, (future) logo/title on other */
         align-items: center;
         position: relative;
+    }
+
+    /* Hero Section Adjustments for Mobile */
+    .hero-section {
+        padding: 40px 0;     /* Reduce top/bottom padding of the overall hero section */
+        min-height: auto;    /* Allow height to be more content-driven, or set a smaller vh e.g., 60vh */
+    }
+
+    .hero-content {
+        padding: 30px 20px;   /* Drastically reduce padding inside the content box */
+        max-width: 90%;       /* Allow the content box to use more of the screen width */
+                               /* This helps with the aspect ratio for the background image */
+        /* You can also experiment with min-height on .hero-content if needed, e.g., min-height: 300px;
+           but reducing padding is usually the first step. */
+    }
+
+    .hero-content h1 { /* Or .hero-section h1 if that's your precise selector */
+        font-size: 2rem;    /* Significantly reduce H1 font size (was 3.5rem) */
+        line-height: 1.25;  /* Adjust line height for smaller font */
+        margin-bottom: 15px; /* Reduce space below H1 */
+    }
+
+    .hero-content .sub-headline { /* Or .hero-section .sub-headline */
+        font-size: 1rem;      /* Reduce sub-headline font size (was 1.5rem) */
+        line-height: 1.5;     /* Adjust line height */
+        margin-bottom: 25px;  /* Reduce space below sub-headline */
+    }
+
+    /* Adjustments for the CTA button within the hero */
+    .hero-content .btn.btn-primary { /* Targeting the specific button in hero */
+        font-size: 0.95rem; /* Reduce font size of the main text in button */
+        padding: 12px 22px; /* Reduce button padding */
+    }
+
+    .hero-content .cta-main-text { /* If you want to be more specific for button's main text line */
+        font-size: 0.95rem; /* Ensure this is adjusted if not inheriting from .btn properly */
+    }
+    .hero-content .cta-sub-text {
+        font-size: 0.75rem; /* Reduce font size of the sub-text in button */
+        margin-top: 1px;    /* Adjust spacing if needed */
+    }
+}
+
+     .header-contact-info {
+        flex-direction: column; /* Stack phone and email vertically */
+        align-items: flex-end;  /* Align items to the right within their new column layout */
+                                /* Use 'flex-start' for left, or 'center' for centered */
+        margin-top: 5px;       /* Reduce top margin slightly for mobile if needed */
+    }
+
+    .contact-item {
+        font-size: 0.85rem;
+        margin-left: 0; 
+        margin-bottom: 5px;
+    }
+
+    .contact-item:last-child {
+        margin-bottom: 0;
+    }
+
+    
+    .site-header {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .yeto-logo {
+        max-height: 40px;
     }
 
     .main-navigation ul {
@@ -854,28 +922,18 @@ body {
     }
 
     .mobile-nav-toggle {
-        display: block; /* Show the hamburger button on mobile */
-        /* Ensure it's positioned correctly. If .main-navigation .container is flex
-           and has justify-content: space-between, this should align to one side.
-           You might need to adjust its order in HTML or use order property if you want
-           it on the right and there's a logo/title on the left.
-           For now, we assume it's the primary element on one side. */
+        display: block; 
     }
-}
+
 
     .mobile-nav-toggle {
-        display: block; /* Show the hamburger button on mobile */
-        /* You might want to add specific positioning here if needed,
-           e.g., if it's not using flexbox from the parent for alignment.
-           If .main-navigation .container is flex and uses space-between,
-           the button will go to one side if it's one of two children.
-           Currently, your <ul> is the other child. */
+        display: block; 
     }
 
 
-/* Styles for the active/open state of the hamburger icon (X shape) */
+
 .mobile-nav-toggle.is-active .hamburger-icon {
-    background-color: transparent; /* Makes the middle line disappear for the 'X' */
+    background-color: transparent; 
 }
 
 .mobile-nav-toggle.is-active .hamburger-icon::before {
