@@ -857,6 +857,257 @@ body {
         margin-top: 5px;       /* Reduce top margin slightly for mobile if needed */
     }
 
+     /* Responsive Styles for "Why Choose YETO?" Section */
+    .why-yeto-section h2 {
+        font-size: 1.8rem;    /* Reduce section headline size (was ~2.2rem) */
+        margin-bottom: 30px;  /* Reduce space below headline */
+    }
+
+    .features-grid {
+        /* If your .features-grid is using CSS Grid like:
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); (or similar 300px)
+           gap: 30px;
+           align-items: start;
+           This setup is already quite responsive. The cards should automatically
+           stack into a single column if the screen isn't wide enough for multiple
+           250px/300px items. You might not need to change grid-template-columns here
+           unless you want to force a single column sooner.
+        */
+        /* If you wanted to force a single column layout for sure on mobile: */
+        /* grid-template-columns: 1fr; */
+        gap: 20px; /* You could reduce the gap between cards on mobile */
+    }
+
+    .feature-card {
+        padding: 20px; /* Reduce padding inside each card (was ~30px 25px) */
+        /* If using Flexbox for .features-grid & cards aren't stacking to full width: */
+        /* flex-basis: 100%; */
+        /* width: 100%; */
+    }
+
+    .feature-icon {
+        /* If using font-size for icon scaling: */
+        /* font-size: 2.5rem; /* Reduce icon size (was ~3rem) */
+        margin-bottom: 15px; /* Reduce space below icon */
+    }
+    .feature-icon img { /* If your icons are <img> tags */
+        height: 40px;  /* Reduce image icon height (was ~45px-60px) */
+        /* width will be auto */
+    }
+
+    .feature-card h3 {
+        font-size: 1.2rem;   /* Reduce card heading size (was ~1.4rem) */
+        margin-bottom: 8px;  /* Reduce space below card heading */
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;   /* Reduce card paragraph size (was ~0.95rem or 1rem) */
+        line-height: 1.5;    /* Adjust line height for smaller font */
+    }
+
+     /* Responsive Styles for "YETO Portal" Section */
+    .portal-section h2 {
+        font-size: 1.8rem;    /* Adjust section headline size */
+        margin-bottom: 20px;  /* Adjust space below headline */
+    }
+
+    .portal-intro {
+        font-size: 0.95rem;   /* Adjust intro paragraph size */
+        line-height: 1.6;
+        margin-bottom: 30px;  /* Adjust space below intro */
+        max-width: 95%;       /* Ensure it doesn't touch edges */
+    }
+
+    .portal-benefits-list {
+        /* If this was display:flex or display:grid for desktop columns,
+           you might need to change it for mobile stacking if items don't
+           naturally stack well or if you want to override column behavior. */
+        display: flex; /* Assuming it might have been flex for desktop */
+        flex-direction: column; /* Stack benefit items vertically */
+        gap: 20px; /* Space between stacked benefit items */
+    }
+
+    .portal-benefit-item {
+        padding: 20px; /* Reduce padding inside each benefit item if it has any */
+        /* If items had a fixed width or flex-basis for columns,
+           ensure they can now take more width: */
+        /* flex-basis: auto; */ /* Reset flex-basis if used */
+        /* width: 100%; */    /* Or close to it */
+        text-align: center; /* If you want icon, h4, p centered within each item */
+    }
+
+    .portal-benefit-icon img {
+        height: 40px;  /* Adjust icon size */
+        margin-bottom: 10px;
+    }
+
+    .portal-benefit-item h4 {
+        font-size: 1.2rem;   /* Adjust benefit item headline size */
+        margin-bottom: 8px;
+    }
+
+    .portal-benefit-item p {
+        font-size: 0.9rem;   /* Adjust benefit item paragraph size */
+        line-height: 1.5;
+    }
+
+    .portal-cta-container {
+        margin-top: 30px; /* Adjust space above the CTA button */
+    }
+
+    .portal-cta.btn.btn-primary { /* Targeting the specific button in this section */
+        font-size: 0.95rem; /* Match other mobile buttons or adjust */
+        padding: 12px 22px; /* Match other mobile buttons or adjust */
+        /* Ensure it's display: inline-block or block and centered if needed */
+    }
+
+     /* Responsive Styles for "Transport Solutions" Section */
+    .solutions-section h2 {
+        font-size: 1.8rem;    /* Adjust section headline size */
+        margin-bottom: 20px;  /* Adjust space below headline */
+    }
+
+    .solutions-intro {
+        font-size: 0.95rem;   /* Adjust intro paragraph size */
+        line-height: 1.6;
+        margin-bottom: 30px;  /* Adjust space below intro */
+        max-width: 95%;       /* Ensure it doesn't touch edges */
+    }
+
+    .solutions-image-container {
+        margin-bottom: 30px; /* Space below the image */
+    }
+
+    /* Ensure the image itself is responsive if not already globally styled */
+    .solutions-image-container img {
+        max-width: 100%; /* Makes sure image scales down */
+        height: auto;    /* Maintains aspect ratio */
+        display: block;  /* Removes extra space below image */
+        margin: 0 auto;  /* Centers image if it's narrower than container */
+    }
+
+    .solutions-pillars {
+        /* If this was display:flex or display:grid for desktop columns,
+           change it for mobile stacking. */
+        display: flex;          /* Assuming it might have been flex for desktop */
+        flex-direction: column; /* Stack pillar items vertically */
+        gap: 25px;              /* Space between stacked pillar items */
+    }
+
+    .pillar-item {
+        padding: 15px; /* Reduce padding inside each pillar item if it has any */
+        /* If items had a fixed width or flex-basis for columns,
+           ensure they can now take more width: */
+        /* flex-basis: auto; */ /* Reset flex-basis if used */
+        /* width: 100%; */    /* Or close to it */
+        /* If it had a border or shadow, ensure it still looks good */
+    }
+
+    .pillar-item h4 {
+        font-size: 1.15rem;  /* Adjust pillar item headline size */
+        margin-bottom: 8px;
+    }
+
+    .pillar-item p {
+        font-size: 0.9rem;   /* Adjust pillar item paragraph size */
+        line-height: 1.5;
+    }
+
+    @media (max-width: 767px) {
+
+    /* ... your existing mobile styles for header, nav, hero, etc. ... */
+
+    /* Responsive Styles for "Social Proof" Section */
+    .social-proof-section h2 {
+        font-size: 1.8rem;    /* Adjust section headline size */
+        margin-bottom: 25px;  /* Adjust space below headline */
+    }
+
+    .section-main-logo-area img {
+        max-height: 60px; /* Reduce size of the main FORS logo */
+        margin-bottom: 30px; /* Adjust space below it */
+    }
+
+    .proof-elements-wrapper {
+        /* The grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+           is already responsive and should stack items to a single column
+           when the screen is too narrow for multiple 250px items.
+           You might only adjust the gap if it feels too large on mobile. */
+        gap: 20px; /* Reduce gap between proof items */
+    }
+
+    .proof-item {
+        padding: 20px; /* Reduce padding inside each general proof item */
+        /* max-width: 700px; on desktop will be fine; on mobile, the grid column
+           width (1fr when stacked) will take precedence if it's narrower. */
+    }
+
+    .proof-item-icon img {
+        height: 35px;  /* Adjust icon size within proof items */
+        margin-bottom: 10px;
+    }
+
+    .proof-item h4 {
+        font-size: 1.15rem; /* Adjust heading size within proof items */
+        margin-bottom: 8px;
+    }
+
+    .proof-item p {
+        font-size: 0.9rem;   /* Adjust paragraph size within proof items */
+        line-height: 1.5;
+        margin-bottom: 10px; /* Ensure consistent bottom margin for paragraphs */
+    }
+    .proof-item p:last-child {
+        margin-bottom: 0; /* Keep this to remove margin from the very last paragraph */
+    }
+
+
+    /* Styles for the dedicated testimonials area within Social Proof */
+    .testimonials-display-area {
+        margin-top: 40px; /* Adjust space above the testimonials block */
+    }
+
+    .testimonials-display-area .proof-item-icon img { /* Icon above "What Our Valued Partners Say" */
+        height: 40px; /* Adjust size */
+        margin-bottom: 10px;
+    }
+
+    .testimonials-display-area h4 { /* "What Our Valued Partners Say" title */
+        font-size: 1.5rem; /* Adjust size */
+        margin-bottom: 20px; /* Adjust space below */
+    }
+
+    .testimonial-item {
+        padding: 20px;       /* Reduce padding inside individual testimonial cards */
+        padding-left: 25px;  /* Keep a bit more left padding if using the border-left for visual separation from the border */
+        max-width: 95%;      /* Allow it to be almost full width of its centered container */
+        margin-bottom: 20px; /* Space between stacked testimonial cards */
+        /* border-left-width: 3px; /* Optionally reduce border thickness */
+    }
+
+    .testimonial-quote {
+        font-size: 0.95rem;  /* Adjust quote text size */
+        line-height: 1.6;
+        margin-bottom: 8px; /* Ensure !important is removed and this applies */
+    }
+
+    .testimonial-quote::before {
+        font-size: 2.5em;    /* Adjust quote mark size if needed */
+        vertical-align: -0.25em; /* May need slight tweak with font size changes */
+    }
+
+    .testimonial-source {
+        font-size: 0.85rem; /* Adjust source text size */
+    }
+
+    .testimonial-note {
+        font-size: 0.8rem;   /* Adjust note text size */
+        margin-top: 15px;
+    }
+}
+
+
     .contact-item {
         font-size: 0.85rem;
         margin-left: 0; 
@@ -929,8 +1180,6 @@ body {
     .mobile-nav-toggle {
         display: block; 
     }
-
-
 
 .mobile-nav-toggle.is-active .hamburger-icon {
     background-color: transparent; 
